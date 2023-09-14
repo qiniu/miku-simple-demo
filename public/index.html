@@ -92,18 +92,15 @@
     </main>
   </div>
 
-  <script src="/miku-delivery-1.3.0-beta.4.js"></script>
-  <script src="/vconsole.min.js"></script>
+  <script src="/miku-delivery-1.3.0.js"></script>
 
   <script>
-    const vConsole = new window.VConsole()
-
     const app = { appID: 'ao89rvrjpyi4gn57', appSalt: 'reimp7tnc2y9p11hckwz10lt3tigw8e7' }
     const domains = ['www-static.qnssl.com']
     const mediaEls = [...document.getElementsByTagName('video'), ...document.getElementsByTagName('audio')]
 
     if ('serviceWorker' in navigator) {
-      mikuDelivery.initProxy('/miku-delivery-sw-1.3.0-beta.4.js', {
+      mikuDelivery.initProxy('/miku-delivery-sw-1.3.0.js', {
         app,
         domains,
         anchorDownload: true
@@ -114,7 +111,7 @@
         }, 100)
       })
     } else {
-      mikuDelivery.initMediaLoader({ app, domains, debug: true })
+      mikuDelivery.initMediaLoader({ app, domains })
       mediaEls.forEach(media => { mikuDelivery.loadMedia(media, media.getAttribute('data-src')) })
     }
   </script>
